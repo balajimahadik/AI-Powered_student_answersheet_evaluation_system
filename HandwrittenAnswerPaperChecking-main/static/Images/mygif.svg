@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Scanner Device -->
+  <g id="scanner">
+    <!-- Scanner body -->
+    <rect x="50" y="100" width="300" height="80" fill="#303030" rx="10"/>
+    <!-- Scanner top -->
+    <path d="M50 100 L350 100 L380 70 L20 70 Z" fill="#404040"/>
+    <!-- Scanner front opening -->
+    <rect x="70" y="120" width="260" height="40" fill="#202020"/>
+    <!-- Status LED -->
+    <circle cx="330" cy="85" r="5" fill="#00ff00">
+      <animate
+        attributeName="fill"
+        values="#00ff00;#004400;#00ff00"
+        dur="1s"
+        repeatCount="indefinite"
+      />
+    </circle>
+    <!-- Scanner glass -->
+    <rect x="80" y="130" width="240" height="20" fill="#333333"/>
+    <!-- Scanning light -->
+    <rect x="85" y="132" width="10" height="16" fill="#00ff00" opacity="0.5">
+      <animate
+        attributeName="x"
+        values="85;305;85"
+        dur="2s"
+        repeatCount="indefinite"
+      />
+    </rect>
+  </g>
+
+  <!-- Answer Sheet -->
+  <g id="answer-sheet">
+    <!-- Main sheet -->
+    <rect width="260" height="300" fill="white" stroke="#ccc">
+      <animate
+        attributeName="y"
+        values="140;180;140"
+        dur="4s"
+        repeatCount="indefinite"
+      />
+    </g>
+    
+    <!-- Answer bubbles -->
+    <g fill="#e0e0e0">
+      <g>
+        <animate
+          attributeName="transform"
+          values="translate(0,140); translate(0,180); translate(0,140)"
+          dur="4s"
+          repeatCount="indefinite"
+        />
+        <!-- Multiple rows of answer bubbles -->
+        <g id="row1">
+          <circle cx="100" cy="20" r="6"/>
+          <circle cx="130" cy="20" r="6"/>
+          <circle cx="160" cy="20" r="6"/>
+          <circle cx="190" cy="20" r="6"/>
+        </g>
+        <g id="row2">
+          <circle cx="100" cy="45" r="6"/>
+          <circle cx="130" cy="45" r="6"/>
+          <circle cx="160" cy="45" r="6"/>
+          <circle cx="190" cy="45" r="6"/>
+        </g>
+        <g id="row3">
+          <circle cx="100" cy="70" r="6"/>
+          <circle cx="130" cy="70" r="6"/>
+          <circle cx="160" cy="70" r="6"/>
+          <circle cx="190" cy="70" r="6"/>
+        </g>
+        <g id="row4">
+          <circle cx="100" cy="95" r="6"/>
+          <circle cx="130" cy="95" r="6"/>
+          <circle cx="160" cy="95" r="6"/>
+          <circle cx="190" cy="95" r="6"/>
+        </g>
+        <!-- Horizontal lines -->
+        <line x1="90" y1="35" x2="270" y2="35" stroke="#cccccc" stroke-width="1"/>
+        <line x1="90" y1="60" x2="270" y2="60" stroke="#cccccc" stroke-width="1"/>
+        <line x1="90" y1="85" x2="270" y2="85" stroke="#cccccc" stroke-width="1"/>
+        <line x1="90" y1="110" x2="270" y2="110" stroke="#cccccc" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Additional scanner details -->
+  <g id="scanner-overlay">
+    <!-- Scanner brand name -->
+    <text x="70" y="90" fill="#808080" font-family="Arial" font-size="10">Scanner Pro 2000</text>
+    <!-- Control buttons -->
+    <rect x="280" y="80" width="15" height="8" fill="#606060" rx="2"/>
+    <rect x="300" y="80" width="15" height="8" fill="#606060" rx="2"/>
+  </g>
+</svg>

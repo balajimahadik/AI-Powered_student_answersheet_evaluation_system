@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluation Page</title>
+    <style>
+        body {
+            font-family: "Roboto", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7fa;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056d6;
+        }
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-overlay img {
+            width: 100px;
+            height: 100px;
+        }
+        .preview {
+            margin-bottom: 20px;
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="preview" id="previewSection">
+            <h3>Submission Preview:</h3>
+            <p><strong>Question Paper ID:</strong> {{ question_paper_id }}</p>
+            <p><strong>Pattern:</strong> {{ question_pattern }}</p>
+            <p>Do you want to proceed with the evaluation?</p>
+        </div>
+        <button id="evaluateButton" onclick="startEvaluation()">Start Evaluation</button>
+        <button onclick="window.history.back()">Back</button>
+        <div class="loading-overlay" id="loadingOverlay">
+            <img src="../static/Images/loading.gif" alt="Loading" />
+        </div>
+    </div>
+<script>
+    async function startEvaluation() {
+    const loadingOverlay = document.getElementById("loadingOverlay");
+    loadingOverlay.style.display = "flex";
+
+    try {
+        const response = await fetch('/evaluate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model_answer_path: 'uploads/ModalAnswer.pdf',
+                student_answer_path: 'uploads/StudentAnswer.pdf',
+                question_paper_path: 'uploads/QuesPaper.pdf',
+                total_possible_marks: 10
+            })
+        });
+
+        if (response.ok) {
+            // Assuming the response contains the student ID or you have it already
+            const studentId = 1; // Example, you can dynamically assign this if needed.
+
+            // Redirect the user to the report page after evaluation
+            window.location.href = `/report/${studentId}`;
+        } else {
+            alert("Error during evaluation: " + (await response.text()));
+        }
+    } catch (error) {
+        alert("An error occurred during evaluation.");
+    } finally {
+        loadingElement.style.display = "none";
+        button.disabled = false;
+    }
+}
+</script>
+</body>
+</html>

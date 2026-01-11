@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Step-by-Step Paper Checking</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: "Roboto", sans-serif;
+				background-color: #f4f7fa;
+				overflow-x: hidden;
+				height: 100%;
+				color: #333;
+			}
+
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+			}
+
+			.container {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+				height: 100%;
+			}
+
+			.step {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 40px;
+				height: 100vh;
+				width: 100vw;
+				border-bottom: 1px solid #ddd;
+				opacity: 0;
+				transform: translateY(50px);
+				transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+			}
+
+			.step.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.gif-section {
+				flex: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #007bff;
+				padding: 20px;
+				border-radius: 10px;
+				height: 100%;
+				box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+			}
+
+			.gif-section img {
+				width: 80%;
+				max-width: 400px;
+				height: auto;
+				border-radius: 10px;
+			}
+
+			.form-section {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				padding: 30px;
+				background-color: #fff;
+				border-radius: 10px;
+				height: 100%;
+				box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			}
+
+			.form-section h2 {
+				font-size: 2.2rem;
+				font-weight: 700;
+				margin-bottom: 20px;
+				color: #333;
+				text-align: center;
+			}
+
+			.form-section p {
+				margin-bottom: 20px;
+				font-size: 1.1rem;
+				color: #555;
+				line-height: 1.5;
+			}
+
+			.form-section input,
+			.form-section button,
+			.form-section select {
+				width: 100%;
+				max-width: 450px;
+				padding: 12px;
+				margin-bottom: 20px;
+				border: 1px solid #ccc;
+				border-radius: 8px;
+				font-size: 1rem;
+				outline: none;
+				transition: all 0.3s ease;
+			}
+
+			.form-section input:focus,
+			.form-section select:focus {
+				border-color: #007bff;
+				box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+			}
+
+			.form-section button {
+				background-color: #007bff;
+				color: #fff;
+				border: none;
+				cursor: pointer;
+				font-weight: bold;
+				transition: background-color 0.3s ease, transform 0.2s ease;
+			}
+
+			.form-section button:hover {
+				background-color: #0056d6;
+				transform: scale(1.05);
+			}
+
+			.navigation {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+			}
+
+			.navigation button {
+				padding: 10px 20px;
+				font-size: 1rem;
+				background-color: #6c757d;
+				color: white;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+				transition: background-color 0.3s ease;
+			}
+
+			.navigation button:hover {
+				background-color: #5a6268;
+			}
+
+			.navigation .submit-btn {
+				background-color: #28a745;
+			}
+
+			.navigation .submit-btn:hover {
+				background-color: #218838;
+			}
+
+			.navigation .back-btn {
+				background-color: #ffc107;
+			}
+
+			.navigation .back-btn:hover {
+				background-color: #e0a800;
+			}
+		</style>
+	</head>
+	<body>
+		<form
+			id="paper-checking-form"
+			action="/upload"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<div class="container" id="container">
+				<!-- Step 1: Introduction -->
+				<div class="step visible" id="step-1">
+					<div class="gif-section">
+						<video autoplay muted loop width="80%" style="border-radius: 10px">
+							<source
+								src="../static/Images/vecteezy_teacher-is-checking-examination-paper-of-his-college-class_22905967 (1).mp4"
+								type="video/mp4"
+							/>
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<div class="form-section">
+						<h2>Welcome to Paper Checking</h2>
+						<p>
+							Let's start the paper checking process step by step. Follow the
+							instructions to complete each step.
+						</p>
+						<div class="navigation">
+							<button type="button" onclick="nextStep(2)">Next</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 2: Upload Question Paper -->
+				<div class="step" id="step-2">
+					<div class="gif-section">
+						<video autoplay muted loop width="80%" style="border-radius: 10px">
+							<source
+								src="../static/Images/vecteezy_scan-the-barcode-to-pay-monthly-phone-bills_5057758.mp4"
+								type="video/mp4"
+							/>
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<div class="form-section">
+						<h2>Step 1: Upload Question Paper</h2>
+						<p>
+							Upload the question paper, provide the question paper ID, and
+							choose the pattern for the paper.
+						</p>
+						<input type="file" name="question_paper" required />
+						<input
+							type="text"
+							name="question_paper_id"
+							placeholder="Enter Question Paper ID"
+							required
+						/>
+						<select name="question_pattern" required>
+							<option value="">Select Pattern</option>
+							<option value="multiple_choice">Multiple Choice</option>
+							<option value="short_answer">Short Answer</option>
+							<option value="long_answer">Long Answer</option>
+						</select>
+						<div class="navigation">
+							<button type="button" onclick="prevStep(1)" class="back-btn">
+								Back
+							</button>
+							<button type="button" onclick="nextStep(3)">Next</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 3: Upload Model Answer Paper -->
+				<div class="step" id="step-3">
+					<div class="gif-section">
+						<img
+							src="../static/Images/upload.gif"
+							alt="Upload Model Answer Paper"
+						/>
+					</div>
+					<div class="form-section">
+						<h2>Step 2: Upload Model Answer Paper</h2>
+						<p>Upload the model answer paper for the question paper.</p>
+						<input type="file" name="model_answer" required />
+						<div class="navigation">
+							<button type="button" onclick="prevStep(2)" class="back-btn">
+								Back
+							</button>
+							<button type="button" onclick="nextStep(4)">Next</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 4: Upload Student Answer Paper -->
+				<div class="step" id="step-4">
+					<div class="gif-section">
+						<img
+							src="../static/Images/scanning-invoice.webp"
+							alt="Upload Student Answer Paper"
+						/>
+					</div>
+					<div class="form-section">
+						<h2>Step 3: Upload Student Answer Paper</h2>
+						<p>Upload the student's answer paper for evaluation.</p>
+						<input type="file" name="student_answer" required />
+						<div class="navigation">
+							<button type="button" onclick="prevStep(3)" class="back-btn">
+								Back
+							</button>
+							<button type="submit" class="submit-btn">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+		<script>
+			let currentStep = 1;
+
+			function showStep(step) {
+				const allSteps = document.querySelectorAll(".step");
+				allSteps.forEach((s) => s.classList.remove("visible"));
+				const currentStepElement = document.getElementById(`step-${step}`);
+				currentStepElement.classList.add("visible");
+				currentStepElement.scrollIntoView({ behavior: "smooth" });
+			}
+
+			function nextStep(step) {
+				currentStep = step;
+				showStep(currentStep);
+			}
+
+			function prevStep(step) {
+				currentStep = step;
+				showStep(currentStep);
+			}
+
+			showStep(currentStep);
+		</script>
+	</body>
+</html>

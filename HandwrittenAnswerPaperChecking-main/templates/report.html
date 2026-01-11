@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style/report.css">
+</head>
+<body>
+    <div class="container">
+        <div class="report-title">
+            <h1>Student Report for Student ID: {{ student_id }}</h1>
+            <p class="total-marks">Total Marks: {{ total_marks_obtained }} / {{ total_marks_possible }}</p>
+            <p><strong>Percentage:</strong> {{ total_percentage }}%</p>
+            <p><strong>Grade:</strong> {{ grade }}</p>
+        </div>
+
+        <div class="graphs">
+            <div class="graph-container">
+                <h2>Question-wise Marks</h2>
+                <div class="graph">
+                    {{ graph_html|safe }}
+                </div>
+            </div>
+
+            <div class="graph-container">
+                <h2>Marks Scored vs Marks Lost</h2>
+                <div class="pie-chart">
+                    {{ pie_html|safe }}
+                </div>
+            </div>
+
+            <div class="graph-container">
+                <h2>Error Breakdown</h2>
+                <div class="error-chart">
+                    {{ error_html|safe }}
+                </div>
+            </div>
+
+            <div class="graph-container">
+                <h2>Error Types Radar Chart</h2>
+                <div class="radar-chart">
+                    {{ radar_html|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

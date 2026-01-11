@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Automated Paper Checking</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: Arial, sans-serif;
+			}
+
+			body {
+				margin: 0;
+				overflow: hidden;
+				font-family: Arial, sans-serif;
+			}
+
+			.hero {
+				position: relative;
+				height: 100vh;
+				width: 100vw;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				color: #fff;
+				padding: 0 50px;
+				z-index: 2;
+			}
+
+			/* Background video */
+			.hero-video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 1;
+			}
+
+			/* Overlay for better readability */
+			.hero-overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+				z-index: 2;
+			}
+
+			.hero-content {
+				position: relative;
+				z-index: 3;
+				display: flex;
+				flex: 1;
+				justify-content: space-between;
+				align-items: center;
+				text-align: left;
+			}
+
+			.hero-text {
+				flex: 1;
+				max-width: 50%;
+			}
+
+			.hero-text h1 {
+				font-size: 3rem;
+				margin-bottom: 20px;
+				font-weight: bold;
+			}
+
+			.hero-text p {
+				font-size: 1.2rem;
+				margin-bottom: 30px;
+			}
+
+			.hero-text button {
+				background-color: #007bff;
+				color: #fff;
+				border: none;
+				padding: 15px 30px;
+				font-size: 1rem;
+				font-weight: bold;
+				border-radius: 8px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.hero-text button:hover {
+				background-color: #0056d6;
+			}
+
+			.hero-image {
+				flex: 1;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.hero-image img {
+				max-width: 80%;
+				height: auto;
+				border-radius: 10px;
+			}
+
+			@media (max-width: 768px) {
+				.hero {
+					flex-direction: column;
+					text-align: center;
+					padding: 20px;
+				}
+
+				.hero-text {
+					max-width: 100%;
+				}
+
+				.hero-image {
+					margin-top: 20px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Background Video -->
+		<video class="hero-video" autoplay muted loop>
+			<!-- <source src="https://www.videvo.net/videvo_files/converted/2013_08/preview/Hands_typing2.mp412137.webm" type="video/webm"> -->
+			<source
+				src="../static/Images/9809-221185519_large.mp4"
+				type="video/mp4"
+			/>
+			Your browser does not support the video tag.
+		</video>
+
+		<!-- Hero Content -->
+		<div class="hero">
+			<div class="hero-overlay"></div>
+			<div class="hero-content">
+				<div class="hero-text">
+					<h1>Welcome to Automated Paper Checking</h1>
+					<p>
+						Simplify the evaluation process with AI-powered technology for
+						accurate, efficient, and fast handwritten paper assessments.
+					</p>
+					<button onclick="window.location.href='/steps';">
+						Get Started
+					</button>
+					<button
+						onclick="window.location.href='#get-started';"
+						style="
+							background-color: transparent;
+							border: solid 2px white;
+							margin-left: 10px;
+						"
+					>
+						Learn More
+					</button>
+				</div>
+				<div class="hero-image">
+					<img
+						src="https://cdn.dribbble.com/users/992314/screenshots/5615870/media/a9bd08f1bd2b718a2bbdb2a85f8fc768.gif"
+						alt="Handwriting Analysis Illustration"
+					/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
